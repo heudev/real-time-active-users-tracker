@@ -6,10 +6,11 @@ const socketIo = require('socket.io');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const MaxUsers = require('./models/MaxUsers');
+const { connectDB } = require('./loaders/database');
 
 dotenv.config();
 
-mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?authSource=admin`);
+connectDB();
 
 const app = express();
 app.use(helmet());
