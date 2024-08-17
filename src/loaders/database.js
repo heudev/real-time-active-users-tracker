@@ -1,6 +1,6 @@
-const Mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-const db = Mongoose.connection;
+const db = mongoose.connection;
 
 db.once("open", () => {
     console.log("Connected to MongoDB");
